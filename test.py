@@ -6,6 +6,7 @@ from django.test import SimpleTestCase as TestCase
 from sgbackend import SendGridBackend
 
 settings.configure(SENDGRID_API_KEY=os.environ.get('SENDGRID_API_KEY'))
+RECIPIENT=os.environ.get('TEST_RECIPIENT', 'recipient@sink.sendgrid.net')
 
 
 class Issue61Tests(TestCase):
@@ -20,7 +21,7 @@ class Issue61Tests(TestCase):
             subject='Email subject',
             body='Email body',
             from_email='webmaster@sink.sendgrid.net',
-            to=('recipient@sink.sendgrid.net', ),
+            to=(RECIPIENT, ),
             attachments=attachments,
         )
 
@@ -45,7 +46,7 @@ class Issue61Tests(TestCase):
             subject='Email subject',
             body='Email body',
             from_email='webmaster@sink.sendgrid.net',
-            to=('recipient@sink.sendgrid.net', ),
+            to=(RECIPIENT, ),
             attachments=attachments,
         )
 
@@ -73,7 +74,7 @@ class Issue61Tests(TestCase):
             subject='Email subject',
             body='Email body',
             from_email='webmaster@sink.sendgrid.net',
-            to=('recipient@sink.sendgrid.net', ),
+            to=(RECIPIENT, ),
             attachments=attachments,
         )
 
